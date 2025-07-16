@@ -208,7 +208,7 @@ func stream(lineup *lineup) gin.HandlerFunc {
 			}
 
 			log.Infoln("Remuxing stream with ffmpeg")
-			run := exec.Command("ffmpeg", "-i", channelURI.String(), "-c:v", "copy", "-f", "mpegts", "pipe:1")
+			run := exec.Command("ffmpeg", "-i", channelURI.String(), "-c:v", "copy", "-c:a", "copy", "-f", "mpegts", "pipe:1")
 			log.Debugf("Executing ffmpeg as \"%s\"", strings.Join(run.Args, " "))
 			ffmpegout, err := run.StdoutPipe()
 			if err != nil {
