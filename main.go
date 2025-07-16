@@ -140,7 +140,7 @@ func main() {
 		}
 	}
 
-	prometheus.MustRegister(version.NewCollector("telly"), exposedChannels)
+	// prometheus.MustRegister(version.NewCollector("telly"), exposedChannels)
 
 	level, parseLevelErr := logrus.ParseLevel(viper.GetString("log.level"))
 	if parseLevelErr != nil {
